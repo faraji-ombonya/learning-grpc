@@ -3,18 +3,21 @@ package main
 import (
 	"flag"
 	"context"
+	"log"
+	"time"
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
+	pb "google.golang.org/grpc/examples/helloworld/helloworld"
 )
 
 
-const defaultName = "world"
+const defaultName = "world";
 
 
 var (
 	addr = flag.String("addr", "localhost:50051", "the address to connect to")
-	name = flag.String("name", defultName, "Name to greet") 
+	name = flag.String("name", defaultName, "Name to greet") 
 )
 
 func main()  {
@@ -26,7 +29,7 @@ func main()  {
 		log.Fatalf("did not connect: %v", err)
 	}
 	defer conn.Close()
-	c := pb.NewGreaterClient(conn)
+	c := pb.NewGreeterClient(conn)
 
 	// Contact the server and print out its response
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
