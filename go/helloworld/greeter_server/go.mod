@@ -1,10 +1,10 @@
-module helloworld
+module example.com/greeter_server
 
-go 1.27.1
+go 1.26.6
 
 require (
+	example.com/pb v0.0.0-00010101000000-000000000000
 	google.golang.org/grpc v1.84.0
-	google.golang.org/grpc/examples v0.0.0-20260922031938-d331f1108320
 )
 
 require (
@@ -14,3 +14,5 @@ require (
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20260817212433-ac3dfec99bb1 // indirect
 	google.golang.org/protobuf v1.36.12 // indirect
 )
+
+replace example.com/pb => ../pb

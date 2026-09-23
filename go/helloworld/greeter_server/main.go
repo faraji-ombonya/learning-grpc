@@ -8,7 +8,7 @@ import (
 	"net"
 
 	"google.golang.org/grpc"
-	pb "google.golang.org/grpc/examples/helloworld/helloworld"
+	"example.com/1/pb"
 )
 
 var port = flag.Int("port", 50051, "The server port")
@@ -22,6 +22,11 @@ type server struct {
 func (s *server) SayHello (_ context.Context, in *pb.HelloRequest) (*pb.HelloReply, error) {
 	log.Printf("Received: %v", in.GetName())
 	return &pb.HelloReply{Message: "Hello " + in.GetName()}, nil	
+}
+
+func (s *server) SayHelloAgain (_ context.Context, in *pb.HelloRequest) (*pb.HelloReply, error) {
+	log.Printf("Again: Received: %v", in.GetName())
+	return &pb.HelloReply{Message: "Again: Hello " + in.GetName()}, nil	
 }
 
 func main()  {

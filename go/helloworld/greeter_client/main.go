@@ -8,7 +8,7 @@ import (
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
-	pb "google.golang.org/grpc/examples/helloworld/helloworld"
+	pb "example.com/pb"
 )
 
 
@@ -39,4 +39,10 @@ func main()  {
 		log.Fatalf("could not greet: %v", err)
 	}
 	log.Printf("Greeting: %s", r.GetMessage())
+
+	response, err := c.SayHelloAgain(ctx, &pb.HelloRequest{Name: *name})
+	if err != nil {
+		log.Fatalf("Could not greet again: %v", err)
+	}
+	log.Printf("Again Greeting: %s", response.GetMessage())
 }
