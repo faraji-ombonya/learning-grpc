@@ -25,7 +25,7 @@ if _version_not_supported:
     )
 
 
-class GreaterStub:
+class GreeterStub:
     """The greeting service definition
     """
 
@@ -36,13 +36,13 @@ class GreaterStub:
             channel: A grpc.Channel.
         """
         self.SayHello = channel.unary_unary(
-                '/helloworld.Greater/SayHello',
+                '/Greeter/SayHello',
                 request_serializer=helloworld__pb2.HelloRequest.SerializeToString,
                 response_deserializer=helloworld__pb2.HelloReply.FromString,
                 _registered_method=True)
 
 
-class GreaterServicer:
+class GreeterServicer:
     """The greeting service definition
     """
 
@@ -54,7 +54,7 @@ class GreaterServicer:
         raise NotImplementedError('Method not implemented!')
 
 
-def add_GreaterServicer_to_server(servicer, server):
+def add_GreeterServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'SayHello': grpc.unary_unary_rpc_method_handler(
                     servicer.SayHello,
@@ -63,13 +63,13 @@ def add_GreaterServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'helloworld.Greater', rpc_method_handlers)
+            'Greeter', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
-    server.add_registered_method_handlers('helloworld.Greater', rpc_method_handlers)
+    server.add_registered_method_handlers('Greeter', rpc_method_handlers)
 
 
  # This class is part of an EXPERIMENTAL API.
-class Greater:
+class Greeter:
     """The greeting service definition
     """
 
@@ -87,7 +87,7 @@ class Greater:
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/helloworld.Greater/SayHello',
+            '/Greeter/SayHello',
             helloworld__pb2.HelloRequest.SerializeToString,
             helloworld__pb2.HelloReply.FromString,
             options,
