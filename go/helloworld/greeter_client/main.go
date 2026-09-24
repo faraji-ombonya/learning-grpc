@@ -8,7 +8,7 @@ import (
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
-	pb "example.com/pb"
+	"example.com/pb"
 )
 
 

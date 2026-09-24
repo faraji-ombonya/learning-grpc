@@ -8,7 +8,7 @@ import (
 	"net"
 
 	"google.golang.org/grpc"
-	"example.com/1/pb"
+	"example.com/pb"
 )
 
 var port = flag.Int("port", 50051, "The server port")
