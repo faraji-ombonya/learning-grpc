@@ -115,15 +115,15 @@ var File_helloworld_proto protoreflect.FileDescriptor
 
 const file_helloworld_proto_rawDesc = "" +
 	"\n" +
-	"\x10helloworld.proto\x12\x02pb\"\"\n" +
+	"\x10helloworld.proto\"\"\n" +
 	"\fHelloRequest\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\"&\n" +
 	"\n" +
 	"HelloReply\x12\x18\n" +
-	"\amessage\x18\x01 \x01(\tR\amessage2n\n" +
-	"\aGreeter\x12.\n" +
-	"\bSayHello\x12\x10.pb.HelloRequest\x1a\x0e.pb.HelloReply\"\x00\x123\n" +
-	"\rSayHelloAgain\x12\x10.pb.HelloRequest\x1a\x0e.pb.HelloReply\"\x00B\x10Z\x0eexample.com/pbb\x06proto3"
+	"\amessage\x18\x01 \x01(\tR\amessage2b\n" +
+	"\aGreeter\x12(\n" +
+	"\bSayHello\x12\r.HelloRequest\x1a\v.HelloReply\"\x00\x12-\n" +
+	"\rSayHelloAgain\x12\r.HelloRequest\x1a\v.HelloReply\"\x00B\x10Z\x0eexample.com/pbb\x06proto3"
 
 var (
 	file_helloworld_proto_rawDescOnce sync.Once
@@ -139,14 +139,14 @@ func file_helloworld_proto_rawDescGZIP() []byte {
 
 var file_helloworld_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_helloworld_proto_goTypes = []any{
-	(*HelloRequest)(nil), // 0: pb.HelloRequest
-	(*HelloReply)(nil),   // 1: pb.HelloReply
+	(*HelloRequest)(nil), // 0: HelloRequest
+	(*HelloReply)(nil),   // 1: HelloReply
 }
 var file_helloworld_proto_depIdxs = []int32{
-	0, // 0: pb.Greeter.SayHello:input_type -> pb.HelloRequest
-	0, // 1: pb.Greeter.SayHelloAgain:input_type -> pb.HelloRequest
-	1, // 2: pb.Greeter.SayHello:output_type -> pb.HelloReply
-	1, // 3: pb.Greeter.SayHelloAgain:output_type -> pb.HelloReply
+	0, // 0: Greeter.SayHello:input_type -> HelloRequest
+	0, // 1: Greeter.SayHelloAgain:input_type -> HelloRequest
+	1, // 2: Greeter.SayHello:output_type -> HelloReply
+	1, // 3: Greeter.SayHelloAgain:output_type -> HelloReply
 	2, // [2:4] is the sub-list for method output_type
 	0, // [0:2] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
